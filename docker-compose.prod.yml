@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    build: 
+    build:
       context: ./app
       dockerfile: Dockerfile.prod
     command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8000
@@ -30,6 +30,7 @@ services:
       - 1337:80
     depends_on:
       - web
+
 volumes:
   postgres_data:
   static_volume:
